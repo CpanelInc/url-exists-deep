@@ -15,8 +15,8 @@ function urlExistsDeep(url, header, method, timeout) {
       }
 
       let checkUrl;
-
-      if (/4\d\d/.test(res.statusCode) && res.statusCode !== 403) {
+      if (/5\d\d/.test(res.statusCode) ||
+          /4\d\d/.test(res.statusCode) && res.statusCode !== 403) {
         resolve(false);
         return;
       }
