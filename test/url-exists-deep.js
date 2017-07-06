@@ -72,4 +72,21 @@ describe('Make deep analyze of URL', function() {
 
     });
    });
+
+  describe('When a url returns a 5xx error', function () {
+    it('should return an error', function(done) {
+      url = 'http://sideeffect.kr/popularconvention/#javascript';
+      urlExistsDeep(url, null, null, 5000)
+        .then(function(res) {
+          res.should.be.false;
+          done();
+        })
+        .catch(function(error) {
+          console.log("Error", error);
+          done();
+        });
+
+    });
+  });
+
 });
